@@ -14,11 +14,11 @@ static const char *fonts[]          = { "Ubuntu:weight=bold:size=10:antialias=tr
                                   "JoyPixels:size=10:antialias=true:autohint=true"
 							 };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#f6ca76";
-static const char col_gray3[]       = "#e05aab";
-static const char col_gray4[]       = "#ed6f26";
-static const char col_cyan[]        = "#f7f0eb";
+static const char col_gray1[]       = "#040404";
+static const char col_gray2[]       = "#a1a1a1";
+static const char col_gray3[]       = "#e851b1";
+static const char col_gray4[]       = "#595959";
+static const char col_cyan[]        = "#e851b1";
 static const unsigned int baralpha = 0xee;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -77,7 +77,7 @@ static const Layout layouts[] = {
 static const char *upvol[] = { "/usr/bin/amixer", "set", "Master", "5%+", NULL };
 static const char *downvol[] = { "/usr/bin/amixer", "set", "Master", "5%-", NULL };
 static const char *mutevol[] = { "/usr/bin/amixer", "set", "Master", "toggle", NULL };
-static const char *playpause[] = { "/usr/bin/amixer", "set", "Master", "toggle", NULL };
+static const char *playpause[] = { "playerctl", "play-pause", NULL };
 static const char *calculator[]  = { "gnome-calculator", NULL };
 static const char *browser[]  = { "firefox", NULL };
 static const char *files[]  = { "nautilus", NULL };
@@ -123,6 +123,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ MODKEY,                       XK_i,      shiftview,  { .i = +1 } },
+	{ MODKEY,                       XK_u,      shiftview,  { .i = -1 } },
 	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
 	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
 	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
