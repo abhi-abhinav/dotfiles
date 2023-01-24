@@ -1,0 +1,11 @@
+#! /usr/bin/dash
+
+
+cd $HOME/Documents
+
+
+file=$(find ./ | dmenu -i -l 8 -p 'Document:')
+[ -z "$file" ] && exit
+
+
+$(printf "firefox\nevince\nzathura" | dmenu) "$file" &

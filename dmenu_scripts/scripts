@@ -1,0 +1,7 @@
+#! /usr/bin/dash
+
+cd $HOME/dotfiles/dmenu_scripts
+
+file=$(find ./ | dmenu -i -l 8 -p 'Scripts:')
+[ -z "$file" ] && exit
+./"$file" &

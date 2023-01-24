@@ -1,0 +1,13 @@
+#! /usr/bin/dash
+
+cd /usr/share/backgrounds/ 
+
+wall=$(find ./ /usr/share/backgrounds/ | dmenu -i -l 8 -p 'Wallpaper:')
+[ -z "$wall" ] && exit
+
+
+mode=$(printf "fill\nscale\nmax\ntile\ncenter" | dmenu)
+[ -z "$mode" ] && exit
+
+
+feh --bg-$mode "$wall" &

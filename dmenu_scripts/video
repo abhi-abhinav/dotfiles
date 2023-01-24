@@ -1,0 +1,12 @@
+#! /usr/bin/dash
+
+
+cd $HOME/Videos
+
+
+file=$(find ./ | dmenu -i -l 8 -p 'Video:')
+[ -z "$file" ] && exit
+
+
+#mpv "$file" &
+$(printf "mpv\nffplay\nfirefox" | dmenu) "file" &
